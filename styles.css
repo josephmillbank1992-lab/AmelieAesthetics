@@ -63,6 +63,13 @@ h1 em { color: var(--accent); }
 .additional dl > div + div { margin-top: .7rem; }
 .additional dt { font-weight: 700; }
 .additional dd { margin-left: 0; color: var(--muted); }
+.price-list { margin-top: 0; border-top: 0; scroll-margin-top: 1.25rem; }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: .75rem clamp(1.75rem, 5vw, 4rem); padding: .5rem .3rem 1rem; }
+.price-grid h3 { font-size: 1.65rem; }
+.price-grid dl { margin: .5rem 0 1.5rem; }
+.price-grid dl > div { display: flex; justify-content: space-between; gap: .75rem; }
+.price-grid dt { font-weight: 400; }
+.price-grid dd { flex-shrink: 0; }
 .approach { background: #302720; color: var(--paper); }
 .approach .eyebrow { color: #ead1b8; }
 .principles { margin-top: 2rem; }

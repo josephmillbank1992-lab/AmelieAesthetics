@@ -46,3 +46,9 @@ new IntersectionObserver(([entry]) => {
 }, { threshold: 0.5 }).observe(gallery);
 
 controls.hidden = false;
+
+const priceList = document.querySelector('#price-list');
+document.querySelector('.treatment-price-link').addEventListener('click', () => {
+  priceList.open = true;
+});
+if (location.hash === '#price-list') priceList.open = true;
