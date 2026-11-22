@@ -100,3 +100,7 @@ footer { border-top: 1px solid var(--line); }
   .wordmark { width: 8.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.client-result { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.25rem clamp(2rem, 7vw, 6rem); margin: 2rem 0 0; padding: clamp(1.5rem, 4vw, 3rem); background: #f0e7dc; }
+.client-result h3 { font-size: clamp(2rem, 4vw, 3.1rem); }
+.client-result img { display: block; width: min(100%, 12.5rem); height: auto; }
