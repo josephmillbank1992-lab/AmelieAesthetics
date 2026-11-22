@@ -101,6 +101,7 @@ footer { border-top: 1px solid var(--line); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-.client-result { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.25rem clamp(2rem, 7vw, 6rem); margin: 2rem 0 0; padding: clamp(1.5rem, 4vw, 3rem); background: #f0e7dc; }
-.client-result h3 { font-size: clamp(2rem, 4vw, 3.1rem); }
-.client-result img { display: block; width: min(100%, 12.5rem); height: auto; }
+.client-result { width: min(100%, 29rem); margin: clamp(2.5rem, 5vw, 4rem) auto 0; }
+.client-result figcaption { margin-bottom: .85rem; font: 400 2rem/1.1 var(--display); }
+.comparison-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.comparison-photos img { display: block; width: 100%; height: auto; }
