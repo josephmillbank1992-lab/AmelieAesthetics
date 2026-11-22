@@ -101,7 +101,21 @@ footer { border-top: 1px solid var(--line); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-.client-result { width: min(100%, 29rem); margin: clamp(2.5rem, 5vw, 4rem) auto 0; }
-.client-result figcaption { margin-bottom: .85rem; font: 400 2rem/1.1 var(--display); }
-.comparison-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.reviews { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(2rem, 7vw, 7rem); }
+.reviews h2 { font-size: clamp(2.65rem, 5vw, 4.8rem); }
+.reviews .eyebrow { margin-bottom: .8rem; }
+.review-grid { display: block; margin-top: 1.65rem; }
+.review-grid figure { gap: .6rem; padding: .9rem 0; }
+.review-grid blockquote { max-width: none; font-size: clamp(1.25rem, 2vw, 1.65rem); }
+.client-result { scroll-margin-top: 1.75rem; }
+.comparison-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: 1.65rem; }
 .comparison-photos img { display: block; width: 100%; height: auto; }
+.result-controls { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.result-controls button { min-height: 2.75rem; border: 0; background: transparent; color: var(--ink); padding: .4rem .65rem; font: 600 .875rem var(--body); cursor: pointer; }
+.result-controls button:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+.result-controls button:focus-visible { outline: 2px solid #a46e3f; outline-offset: -2px; }
+.comparison-photos[hidden], .result-controls[hidden] { display: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 48rem) {
+  .reviews { grid-template-columns: minmax(0, 1fr); }
+}

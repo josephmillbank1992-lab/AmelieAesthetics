@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="results.js" defer></script>
   <script>
     window.va = window.va || function () {
       (window.vaq = window.vaq || []).push(arguments);
@@ -100,29 +101,42 @@
       </div>
     </section>
     <section id="reviews" class="section shell reviews" aria-labelledby="reviews-title">
-      <p class="eyebrow">Client reviews</p>
-      <h2 id="reviews-title">Kind words from clients.</h2>
-      <div class="review-grid">
-        <figure>
-          <blockquote>“Iwona is an absolute gem - so knowledgeable, gentle and attentive. She took the time to listen to my needs and made sure I was comfortable throughout the whole procedure.”</blockquote>
-          <figcaption>Pabau review · October 2026</figcaption>
-        </figure>
-        <figure>
-          <blockquote>“The clinic is a beautiful calm &amp; tasteful environment. Iwona goes over and above to ensure that the experience from start to finish is perfect in every way.”</blockquote>
-          <figcaption>Google review · June 2026</figcaption>
-        </figure>
-        <figure>
-          <blockquote>“Absolute professionalism from start to finish.”</blockquote>
-          <figcaption>Pabau review · August 2026</figcaption>
-        </figure>
-      </div>
-      <figure class="client-result" id="client-result">
-        <figcaption>Client before &amp; after</figcaption>
-        <div class="comparison-photos">
-          <img src="assets/client-comparison-first.webp" width="506" height="450" alt="First close-up of the client’s lower face" loading="lazy">
-          <img src="assets/client-comparison-second.webp" width="506" height="450" alt="Second close-up of the client’s lower face" loading="lazy">
+      <div>
+        <p class="eyebrow">Client reviews</p>
+        <h2 id="reviews-title">Kind words from clients.</h2>
+        <div class="review-grid">
+          <figure>
+            <blockquote>“Iwona is an absolute gem - so knowledgeable, gentle and attentive. She took the time to listen to my needs and made sure I was comfortable throughout the whole procedure.”</blockquote>
+            <figcaption>Pabau review · October 2026</figcaption>
+          </figure>
+          <figure>
+            <blockquote>“The clinic is a beautiful calm &amp; tasteful environment. Iwona goes over and above to ensure that the experience from start to finish is perfect in every way.”</blockquote>
+            <figcaption>Google review · June 2026</figcaption>
+          </figure>
+          <figure>
+            <blockquote>“Absolute professionalism from start to finish.”</blockquote>
+            <figcaption>Pabau review · August 2026</figcaption>
+          </figure>
         </div>
-      </figure>
+      </div>
+      <div class="client-result" id="client-result" aria-labelledby="client-result-title">
+        <p class="eyebrow">Client results</p>
+        <h2 id="client-result-title">Before &amp; after.</h2>
+        <div class="comparison-photos">
+          <img src="assets/client-comparison-first.webp" width="506" height="450" alt="First close-up of a client’s lower face" loading="lazy">
+          <img src="assets/client-comparison-second.webp" width="506" height="450" alt="Second close-up of the same client’s lower face" loading="lazy">
+        </div>
+        <div class="comparison-photos" hidden>
+          <img src="assets/client-comparison-two-first.webp" width="506" height="450" alt="First close-up of another client’s lower face" loading="lazy">
+          <img src="assets/client-comparison-two-second.webp" width="506" height="450" alt="Second close-up of the same client’s lower face" loading="lazy">
+        </div>
+        <div class="result-controls" role="group" aria-label="Before and after photo controls" hidden>
+          <button type="button" data-step="-1">Previous</button>
+          <button type="button" data-rotation>Pause</button>
+          <button type="button" data-step="1">Next</button>
+        </div>
+        <p class="visually-hidden" role="status"></p>
+      </div>
     </section>
     <section id="visit" class="section shell visit">
       <div>
