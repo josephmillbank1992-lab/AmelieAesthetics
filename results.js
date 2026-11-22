@@ -1,55 +1,48 @@
 const gallery = document.querySelector('#client-result');
 const pairs = [...gallery.querySelectorAll('.comparison-photos')];
 const controls = gallery.querySelector('.result-controls');
-const rotation = controls.querySelector('[data-rotation]');
-const status = gallery.querySelector('[role="status"]');
+const position = controls.querySelector('[role="status"]');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let active = 0;
-let playing = !reducedMotion.matches;
+let previewed = false;
 let inView = false;
 let timer;
 
-function showPair(index, announce = false) {
+function showPair(index) {
   pairs[active].hidden = true;
   active = (index + pairs.length) % pairs.length;
   pairs[active].hidden = false;
-  if (announce) status.textContent = `Comparison ${active + 1} of ${pairs.length}`;
+  position.textContent = `${active + 1} of ${pairs.length}`;
 }
 
-function updateRotation() {
-  clearInterval(timer);
-  rotation.textContent = playing ? 'Pause' : 'Play';
-  if (playing && inView && !document.hidden &&
+function updatePreview() {
+  clearTimeout(timer);
+  if (!previewed && inView && !document.hidden && !reducedMotion.matches &&
       !gallery.matches(':hover, :focus-within')) {
-    timer = setInterval(() => showPair(active + 1), 8000);
+    timer = setTimeout(() => {
+      previewed = true;
+      showPair(active + 1);
+    }, 4500);
   }
 }
 
 controls.addEventListener('click', (event) => {
-  const button = event.target.closest('button');
+  const button = event.target.closest('button[data-step]');
   if (!button) return;
-  if (button === rotation) {
-    playing = !playing;
-  } else {
-    playing = false;
-    showPair(active + Number(button.dataset.step), true);
-  }
-  updateRotation();
+  previewed = true;
+  showPair(active + Number(button.dataset.step));
+  updatePreview();
 });
 
-gallery.addEventListener('mouseenter', updateRotation);
-gallery.addEventListener('mouseleave', updateRotation);
-gallery.addEventListener('focusin', updateRotation);
-gallery.addEventListener('focusout', () => requestAnimationFrame(updateRotation));
-document.addEventListener('visibilitychange', updateRotation);
-reducedMotion.addEventListener('change', (event) => {
-  if (event.matches) playing = false;
-  updateRotation();
-});
+gallery.addEventListener('mouseenter', updatePreview);
+gallery.addEventListener('mouseleave', updatePreview);
+gallery.addEventListener('focusin', updatePreview);
+gallery.addEventListener('focusout', () => requestAnimationFrame(updatePreview));
+document.addEventListener('visibilitychange', updatePreview);
+reducedMotion.addEventListener('change', updatePreview);
 new IntersectionObserver(([entry]) => {
   inView = entry.isIntersecting;
-  updateRotation();
+  updatePreview();
 }, { threshold: 0.5 }).observe(gallery);
 
 controls.hidden = false;
-updateRotation();

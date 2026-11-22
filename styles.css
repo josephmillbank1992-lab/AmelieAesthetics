@@ -110,12 +110,21 @@ footer { border-top: 1px solid var(--line); }
 .client-result { scroll-margin-top: 1.75rem; }
 .comparison-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: 1.65rem; }
 .comparison-photos img { display: block; width: 100%; height: auto; }
-.result-controls { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.result-controls { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border-bottom: 1px solid var(--line); }
+.result-controls button:first-child { justify-self: start; }
+.result-controls button:last-child { justify-self: end; }
+.result-position { color: var(--muted); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .result-controls button { min-height: 2.75rem; border: 0; background: transparent; color: var(--ink); padding: .4rem .65rem; font: 600 .875rem var(--body); cursor: pointer; }
 .result-controls button:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
 .result-controls button:focus-visible { outline: 2px solid #a46e3f; outline-offset: -2px; }
 .comparison-photos[hidden], .result-controls[hidden] { display: none; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 48rem) {
-  .reviews { grid-template-columns: minmax(0, 1fr); }
+  .reviews { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; padding-block: 2.75rem; }
+  .reviews h2 { font-size: clamp(2.5rem, 9vw, 3.5rem); }
+  .reviews .eyebrow { margin-bottom: .55rem; }
+  .review-grid, .comparison-photos { margin-top: 1rem; }
+  .review-grid figure { gap: .4rem; padding-block: .7rem; }
+  .review-grid blockquote { font: 400 1rem/1.55 var(--body); }
+  .client-result { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .result-controls button { min-height: 3rem; padding-inline: .75rem; }
 }
